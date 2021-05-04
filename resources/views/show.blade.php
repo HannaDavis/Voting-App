@@ -34,11 +34,13 @@
                         <div>&bull;</div>
                         <div class="text-gray-900">3 Comments</div>
                     </div>
-                    <div class="flex items-center space-x-2">
+                    <div class="flex items-center space-x-2" x-data="{ isOpen:false }">
                         <div class="bg-gray-200 sm:text-xs font-bold uppercase
                                 leading-none rounded-full text-center w-28 h-7 py-2 px-4">Open
                         </div>
-                        <button class="relative bg-gray-100 hover:bg-gray-200
+                        <button
+                            @click="isOpen = !isOpen"
+                            class="relative bg-gray-100 hover:bg-gray-200
                                 rounded-full h-7
                                 ">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-24" viewBox="0 0 20 20"
@@ -46,7 +48,12 @@
                                 <path
                                     d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"/>
                             </svg>
-                            <ul class="absolute w-44 font-semibold hidden
+                            <ul
+                                x-cloak
+                                @keydown.escape.window="isOpen=false"
+                                x-show.transition.origin.top.left.duration.500ms="isOpen"
+                                @click.away="isOpen=false"
+                                class="absolute w-44 font-semibold
                                 bg-white shadow-lg rounded-xl py-3 ml-8">
                                 <li><a href="#" class="hover:bg-gray-100 px-5 py-3 block">Mark as Spam</a></li>
                                 <li><a href="#" class="hover:bg-gray-100 px-5 py-3 block">Delete Post</a></li>
@@ -60,13 +67,18 @@
     </div>
     {{-- end idea container --}}
     <div class="buttons-container flex items-center justify-between mt-6">
-        <div class="flex items-center space-x-4 ml-6 ">
+        <div class="flex items-center space-x-4 ml-6" x-data="{ isOpen:false }">
             <button type="button"
+                    @click="isOpen = !isOpen"
                     class="flex items-center justify-center h-11 w-32 text-xs bg-blue-200 font-semibold rounded-xl border border-blue-200 hover:border-blue-400 ">
                 <span>Reply</span>
             </button>
             <div
-                class="hidden absolute z-10 w-104 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-2">
+                x-cloak
+                @keydown.escape.window="isOpen=false"
+                x-show.transition.origin.top.left.duration.500ms="isOpen"
+                @click.away="isOpen=false"
+                class=" absolute z-10 w-104 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-2">
                 <form action="#" class="space-y-4 px-4 py-6" method="post">
                     <div>
                         <textarea
@@ -86,13 +98,19 @@
                     </div>
                 </form>
             </div>
-            <div class="relative">
+            <div class="relative" x-data="{ isOpen:false }">
                 <button type="button"
+                        @click="isOpen = !isOpen"
                         class="flex items-center justify-center w-32 h-11 text-xs bg-gray-200 font-semibold rounded-xl border border-gray-200 hover:border-gray-400 ">
                     <span>Set Status</span>
                 </button>
-                <div
-                    class=" absolute z-20 w-76 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl mt-2 px-6 py-6">
+                <div x-cloak
+                     @keydown.escape.window="isOpen=false"
+                     x-show.transition.origin.top.left.duration.500ms="isOpen"
+                     @click.away="isOpen=false"
+                     class="absolute z-20 w-76 text-left font-semibold text-sm bg-white shadow-dialog rounded-xl
+                     mt-2 px-6 py-6
+                ">
                     <form action="" method="post">
                         <div class="mt-2 px-4">
                             <div>
@@ -143,7 +161,8 @@
                         </div>
                         <div class="mt-6">
                             <label class="inline-flex items-center font-normal">
-                                <input class="form-checkbox rounded bg-gray-200" name="notify_voters" type="checkbox" checked="">
+                                <input class="form-checkbox rounded bg-gray-200" name="notify_voters" type="checkbox"
+                                       checked="">
                                 <span class="ml-2">Notify All Voters</span>
                             </label>
                         </div>
@@ -182,12 +201,14 @@
                         molestiae neque reiciendis unde! Architecto aspernatur assumenda consectetur cupiditate delectus
                         dolorum eligendi esse harum iusto, labore, maiores molestiae molestias natus nesciunt nihil.
                     </div>
-                    <div class="flex items-center justify-between mt-6">
+                    <div class="flex items-center justify-between mt-6" x-data="{ isOpen:false }">
                         <div class="flex items-center text-xs font-semibold space-x-2 text-gray-400">
                             <div class="font-bold text-gray-900">John Doe</div>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <button class="relative bg-gray-100 hover:bg-gray-200
+                            <button
+                                @click="isOpen = !isOpen"
+                                class="relative bg-gray-100 hover:bg-gray-200
                                 rounded-full h-7
                                 ">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-24" viewBox="0 0 20 20"
@@ -195,7 +216,12 @@
                                     <path
                                         d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"/>
                                 </svg>
-                                <ul class="absolute w-44 font-semibold hidden
+                                <ul
+                                    x-cloak
+                                    @keydown.escape.window="isOpen=false"
+                                    x-show.transition.origin.top.left.duration.500ms="isOpen"
+                                    @click.away="isOpen=false"
+                                    class="absolute w-44 font-semibold
                                 bg-white shadow-lg rounded-xl py-3 ml-8">
                                     <li><a href="#" class="hover:bg-gray-100 px-5 py-3 block">Mark as Spam</a></li>
                                     <li><a href="#" class="hover:bg-gray-100 px-5 py-3 block">Delete Post</a></li>
@@ -227,12 +253,14 @@
                         molestiae neque reiciendis unde! Architecto aspernatur assumenda consectetur cupiditate delectus
                         dolorum eligendi esse harum iusto, labore, maiores molestiae molestias natus nesciunt nihil.
                     </div>
-                    <div class="flex items-center justify-between mt-6">
+                    <div class="flex items-center justify-between mt-6" x-data="{ isOpen:false }">
                         <div class="flex items-center text-xs font-semibold space-x-2 text-gray-400">
                             <div class="font-bold text-blue-900">Andrea</div>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <button class="relative bg-gray-100 hover:bg-gray-200
+                            <button
+                                @click="isOpen = !isOpen"
+                                class="relative bg-gray-100 hover:bg-gray-200
                                 rounded-full h-7
                                 ">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-24" viewBox="0 0 20 20"
@@ -240,7 +268,12 @@
                                     <path
                                         d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"/>
                                 </svg>
-                                <ul class="absolute w-44 font-semibold hidden
+                                <ul
+                                    x-cloak
+                                    @keydown.escape.window="isOpen=false"
+                                    x-show.transition.origin.top.left.duration.500ms="isOpen"
+                                    @click.away="isOpen=false"
+                                    class="absolute w-44 font-semibold
                                 bg-white shadow-lg rounded-xl py-3 ml-8">
                                     <li><a href="#" class="hover:bg-gray-100 px-5 py-3 block">Mark as Spam</a></li>
                                     <li><a href="#" class="hover:bg-gray-100 px-5 py-3 block">Delete Post</a></li>
@@ -271,12 +304,14 @@
                         molestiae neque reiciendis unde! Architecto aspernatur assumenda consectetur cupiditate delectus
                         dolorum eligendi esse harum iusto, labore, maiores molestiae molestias natus nesciunt nihil.
                     </div>
-                    <div class="flex items-center justify-between mt-6">
+                    <div class="flex items-center justify-between mt-6" x-data="{ isOpen:false }">
                         <div class="flex items-center text-xs font-semibold space-x-2 text-gray-400">
                             <div class="font-bold text-gray-900">John Doe</div>
                         </div>
                         <div class="flex items-center space-x-2">
-                            <button class="relative bg-gray-100 hover:bg-gray-200
+                            <button
+                                @click="isOpen = !isOpen"
+                                class="relative bg-gray-100 hover:bg-gray-200
                                 rounded-full h-7
                                 ">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-24" viewBox="0 0 20 20"
@@ -284,7 +319,12 @@
                                     <path
                                         d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"/>
                                 </svg>
-                                <ul class="absolute w-44 font-semibold hidden
+                                <ul
+                                    x-cloak
+                                    @keydown.escape.window="isOpen=false"
+                                    x-show.transition.origin.top.left.duration.500ms="isOpen"
+                                    @click.away="isOpen=false"
+                                    class="absolute w-44 font-semibold
                                 bg-white shadow-lg rounded-xl py-3 ml-8">
                                     <li><a href="#" class="hover:bg-gray-100 px-5 py-3 block">Mark as Spam</a></li>
                                     <li><a href="#" class="hover:bg-gray-100 px-5 py-3 block">Delete Post</a></li>
