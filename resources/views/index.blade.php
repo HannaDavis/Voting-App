@@ -1,4 +1,4 @@
-<x-app-layout>x
+<x-app-layout>
 
     <div class="filters flex space-x-6">
         <div class="w-1/3">
@@ -50,10 +50,12 @@
                 </div>
             </div>
             <div class="flex px-2 py-6">
-                <a href="#" class="flex-none">
+                <div class="flex-none">
+                    <a href="#" class="flex-none">
                     <img src="https://source.unsplash.com/200x200/?face&crop=face&v=1" alt="avatar"
                          class="w-14 h-14 rounded-xl">
                 </a>
+                </div>
                 <div class="mx-4">
                     <h4 class="text-xl font-semibold">
                         <a href="" class="hover:underline">A random title goes here</a>
