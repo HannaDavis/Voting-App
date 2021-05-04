@@ -50,27 +50,59 @@
     </div>
 </header>
 <main class="container mx-auto flex" style="max-width: 1000px">
-    <div style="max-width: 280px; margin-right: 20px;">
-        Add idea form goes. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti dolorum enim ex explicabo
-        fugiat ipsam porro sequi temporibus totam voluptas! Ab distinctio est et nulla numquam sed vero! Accusamus ad
-        aperiam asperiores, at distinctio fugit harum hic incidunt itaque maiores, maxime nam obcaecati perferendis
-        quisquam, tempora voluptate voluptatem! Ab accusantium aliquid assumenda, consectetur cum debitis dignissimos
-        dolorum earum eligendi, esse est et ex exercitationem expedita facilis hic ipsam iste maiores molestias mollitia
-        neque numquam obcaecati praesentium provident quae quaerat quibusdam quidem quos recusandae reiciendis repellat
-        repellendus reprehenderit similique sint soluta velit vitae? Distinctio enim esse ipsa placeat quis, tempore
-        totam!
+    <div class="bg-white border-2 border-blue rounded-xl mt-16" style="max-width: 280px; margin-right: 20px;">
+        <div class="text-center px-6 py-2 pt-6">
+            <h3 class="font-semibold text-base">Add an idea</h3>
+            <p class="text-xs mt-4">Let us know what you would like and we'll take a look over! </p>
+        </div>
+        <form action="#" method="POST" class="space-y-4 px-4 py-6">
+            <div>
+                <input type="text" class="w-full bg-gray-100 rounded-xl placeholder-gray-900 px-4 py-2"
+                       placeholder="Your idea">
+            </div>
+            <div>
+                <select name="category_add" id="category_add"
+                        class="bg-gray-100 w-full border-none rounded-xl px-4 py-2 text-sm">
+                    <option value="Category One">Category 1</option>
+                    <option value="Category Two">Category 2</option>
+                    <option value="Category Three">Category 3</option>
+                    <option value="Category Four">Category 4</option>
+                </select>
+            </div>
+            <div>
+                <textarea name="idea" id="idea" cols="30" rows="10"
+                          class="w-full bg-gray-100 rounded-xl placeholder-gray-900 text-sm px-4 py-2 border-none"
+                          placeholder="Describe your idea"></textarea>
+            </div>
+            <div class="flex items-center justify-between space-x-3">
+                <button type="button" class="flex items-center justify-center w-1/2 h-11 text-xs bg-gray-200 font-semibold rounded-xl border border-gray-200 hover:border-gray-400 ">
+                    <span>Attach</span>
+                </button>
+                <button type="submit" class="flex items-center justify-center w-1/2 h-11 text-xs bg-blue-200 font-semibold rounded-xl border border-blue-200 hover:border-blue-400 ">
+                    <span>Submit</span>
+                </button>
+            </div>
+        </form>
     </div>
     <div style="max-width: 700px;">
         <nav class="flex items-center justify-between text-sm">
             <ul class="flex uppercase font-semibold space-x-10 pb-3">
                 <li><a href="#" class="border-b-4 pb-3 border-blue-400">All Ideas (87)</a></li>
-                <li><a href="#" class="text-gray-400 transition duration-300 transform border-b-4 hover:border-blue-400 pb-3">Considering (6)</a></li>
-                <li><a href="#" class="text-gray-400 transition duration-300 transform border-b-4 hover:border-blue-400 pb-3">In Progress (1)</a></li>
+                <li><a href="#"
+                       class="text-gray-400 transition duration-300 transform border-b-4 hover:border-blue-400 pb-3">Considering
+                        (6)</a></li>
+                <li><a href="#"
+                       class="text-gray-400 transition duration-300 transform border-b-4 hover:border-blue-400 pb-3">In
+                        Progress (1)</a></li>
 
             </ul>
             <ul class="flex uppercase font-semibold space-x-10 pb-3">
-                <li><a href="#" class="text-gray-400 transition duration-300 transform border-b-4 hover:border-blue-400 pb-3">Implemented (10)</a></li>
-                <li><a href="#" class="text-gray-400 transition duration-300 transform border-b-4 hover:border-blue-400 pb-3">Closed (55)</a></li>
+                <li><a href="#"
+                       class="text-gray-400 transition duration-300 transform border-b-4 hover:border-blue-400 pb-3">Implemented
+                        (10)</a></li>
+                <li><a href="#"
+                       class="text-gray-400 transition duration-300 transform border-b-4 hover:border-blue-400 pb-3">Closed
+                        (55)</a></li>
             </ul>
         </nav>
         <div class="mt-8">
