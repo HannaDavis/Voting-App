@@ -18,17 +18,15 @@
                 </a>
             </div>
             <div class="mx-4">
-                {{--                <h4 class="text-xl font-semibold">--}}
-                {{--                    <a href="" class="hover:underline">A random title goes here</a>--}}
-                {{--                </h4>--}}
+                <h4 class="text-xl font-semibold">
+                    <a href="" class="hover:underline">{{ $idea->title }}</a>
+                </h4>
                 <div class="text-gray-600 mt-3 line-clamp-3">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur dolore fugit itaque labore
-                    molestiae neque reiciendis unde! Architecto aspernatur assumenda consectetur cupiditate delectus
-                    dolorum eligendi esse harum iusto, labore, maiores molestiae molestias natus nesciunt nihil.
+                   {{ $idea->description }}
                 </div>
                 <div class="flex items-center justify-between mt-6">
                     <div class="flex items-center text-xs font-semibold space-x-2 text-gray-400">
-                        <div class="font-bold text-gray-900">John Doe</div>
+                        <div class="font-bold text-gray-900">{{ $idea->user->name }}</div>
                         <div>&bull;</div>
                         <div>Category 1</div>
                         <div>&bull;</div>
