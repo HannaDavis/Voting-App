@@ -73,8 +73,8 @@
                                 <div class="text-gray-900">3 Comments</div>
                             </div>
                             <div class="flex items-center space-x-2" x-data="{ isOpen:false }">
-                                <div class="bg-gray-200 sm:text-xs font-bold uppercase
-                                leading-none rounded-full text-center w-28 h-7 py-2 px-4">Open
+                                <div class=" {{$idea->status->classes}}  sm:text-xs font-bold uppercase
+                                leading-none rounded-full text-center w-28 h-7 py-2 px-4">{{$idea->status->name}}
                                 </div>
                                 <button
                                     @click="isOpen = !isOpen"

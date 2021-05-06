@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             CategorySeeder::class,
+            StatusSeeder::class,
         ]);
         Idea::factory(30)->create();
     }
