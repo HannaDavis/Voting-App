@@ -15,11 +15,16 @@ class ShowIdeasTest extends TestCase
 {
     use RefreshDatabase;
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+        app(DatabaseSeeder::class)->call(CategorySeeder::class);
+        app(DatabaseSeeder::class)->call(StatusSeeder::class);
+    }
+
     /** @test */
     public function list_of_ideas_shows_on_main_page()
     {
-        app(DatabaseSeeder::class)->call(CategorySeeder::class);
-        app(DatabaseSeeder::class)->call(StatusSeeder::class);
         $categoryOne = Category::find(1);
         $categoryTwo = Category::find(2);
 
@@ -46,26 +51,26 @@ class ShowIdeasTest extends TestCase
         $response->assertSee($ideaOne->title);
         $response->assertSee($ideaOne->description);
         $response->assertSee($categoryOne->name);
-        $response->assertSee('<div class=" bg-gray-200  sm:text-xs font-bold uppercase
+        $response->assertSee(
+            '<div class=" bg-gray-200  sm:text-xs font-bold uppercase
                                 leading-none rounded-full text-center w-28 h-7 py-2 px-4">Open
-                                </div>', false);
+                                </div>',
+            false
+        );
 
         $response->assertSee($ideaTwo->title);
         $response->assertSee($ideaTwo->description);
         $response->assertSee($categoryTwo->name);
-
     }
 
     /** @test */
     public function single_idea_shows_correctly_on_shows_page()
     {
-        app(DatabaseSeeder::class)->call(CategorySeeder::class);
-        app(DatabaseSeeder::class)->call(StatusSeeder::class);
         $categoryOne = Category::find(1);
         $idea = Idea::factory()->create(
             [
                 'title' => 'my first idea',
-                'category_id'=>$categoryOne->id,
+                'category_id' => $categoryOne->id,
                 'status_id' => 1,
                 'description' => 'description of my first title'
             ]
@@ -80,8 +85,6 @@ class ShowIdeasTest extends TestCase
     /** @test */
     public function pagination_works()
     {
-        app(DatabaseSeeder::class)->call(CategorySeeder::class);
-        app(DatabaseSeeder::class)->call(StatusSeeder::class);
         Idea::factory(Idea::PAGINATION_COUNT + 1)->create();
         $ideaOne = Idea::find(1);
         $ideaOne->title = 'My First Idea';

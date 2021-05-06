@@ -21,6 +21,7 @@ class IdeaController extends Controller
             'idea.index',
             [
                 'ideas' => Idea::with('user', 'category', 'status')
+                                 ->orderBy('id', 'desc')
                                  ->simplePaginate(Idea::PAGINATION_COUNT)
             ]
         );
